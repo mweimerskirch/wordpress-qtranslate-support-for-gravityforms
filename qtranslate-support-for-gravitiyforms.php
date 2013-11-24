@@ -26,6 +26,7 @@ function qtranslate_gform_pre_render($form) {
 	}
 	foreach($form['fields'] as $id => $field) {
 		$form['fields'][$id]['label'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['label']);
+		$form['fields'][$id]['content'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['content']);
 		$form['fields'][$id]['description'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['description']);
 		$form['fields'][$id]['errorMessage'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['errorMessage']);
 		$form['fields'][$id]['validation_message'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['validation_message']);
