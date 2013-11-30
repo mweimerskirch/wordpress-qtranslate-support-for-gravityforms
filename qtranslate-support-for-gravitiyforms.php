@@ -28,6 +28,7 @@ function qtranslate_gform_pre_render($form) {
 		$form['fields'][$id]['label'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['label']);
 		$form['fields'][$id]['content'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['content']);
 		$form['fields'][$id]['description'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['description']);
+		$form['fields'][$id]['defaultValue'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['defaultValue']);
 		$form['fields'][$id]['errorMessage'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['errorMessage']);
 		$form['fields'][$id]['validation_message'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['validation_message']);
 		$form['fields'][$id]['choices'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['fields'][$id]['choices']);
@@ -36,7 +37,7 @@ function qtranslate_gform_pre_render($form) {
 				foreach($key as $value2 =>$key2){
 					$form['fields'][$id]['conditionalLogic']['rules'][$value][$value2] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($key2);
 				}
-			}	
+			}
 		}
 	}
 	return $form;
