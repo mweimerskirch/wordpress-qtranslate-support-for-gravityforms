@@ -2,7 +2,7 @@
 Tags: qtranslate, gravityforms
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: MIT
 License URI: http://plugins.svn.wordpress.org/qtranslate-support-for-gravityforms/trunk/LICENSE
 
@@ -19,3 +19,8 @@ e.g. if you use "[:en]Your name[:de]Ihr Name[:lb]Ären Numm" as a label, qTransl
 To report a bug or contribute to the plugin, please create an issue at the project page on GitHub: https://github.com/mweimerskirch/wordpress-qtranslate-support-for-gravityforms
 
 I won't answer to requests in the support forum.
+
+== Changelog ==
+
+= 1.01 =
+* Added translations to notifications and confirmation mails (Contributed by qatryk)
