@@ -56,3 +56,20 @@ function qtranslate_gform_form_tag($tag) {
 	);
 	return $tag;
 }
+
+add_filter("gform_confirmation", "custom_confirmation", 10, 4);
+
+function custom_confirmation($confirmation, $form, $lead, $ajax){
+        $confirmation = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($confirmation);
+
+    return $confirmation;
+}
+
+add_filter("gform_pre_send_email", "before_email");
+
+function before_email($email){
+
+	$email["message"] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($email["message"]);
+	$email["subject"] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($email["subject"]);
+	return $email;	
+}
