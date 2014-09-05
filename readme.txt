@@ -22,5 +22,8 @@ I won't answer to requests in the support forum.
 
 == Changelog ==
 
-= 1.01 =
+= 1.0.2 =
+* Small code optimisations
+
+= 1.0.1 =
 * Added translations to notifications and confirmation mails (Contributed by qatryk)
