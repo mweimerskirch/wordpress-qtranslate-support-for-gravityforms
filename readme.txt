@@ -24,6 +24,7 @@ I won't answer to requests in the support forum.
 
 = 1.0.2 =
 * Small code optimisations
+* Check if qTranslate functions exist before executing the filters (prevents sites from breaking during upgrades)
 
 = 1.0.1 =
 * Added translations to notifications and confirmation mails (Contributed by qatryk)

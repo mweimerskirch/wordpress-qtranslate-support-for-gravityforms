@@ -10,8 +10,11 @@ License: MIT
 */
 add_filter('gform_pre_render', 'qtranslate_gform_pre_render');
 add_filter('gform_pre_submission_filter', 'qtranslate_gform_pre_render');
+add_filter('gform_polls_form_pre_results', 'qtranslate_gform_pre_render');
 function qtranslate_gform_pre_render($form)
 {
+	if (!function_exists('qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage')) return $form;
+
 	if (isset($form['button']['text'])) {
 		$form['button']['text'] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($form['button']['text']);
 	}
@@ -49,6 +52,8 @@ function qtranslate_gform_pre_render($form)
 add_filter('gform_form_tag', 'qtranslate_gform_form_tag');
 function qtranslate_gform_form_tag($tag)
 {
+	if (!function_exists('qtrans_convertURL')) return $tag;
+
 	global $q_config;
 	$tag = preg_replace_callback(
 		"|action='([^']+)'|",
@@ -64,6 +69,8 @@ function qtranslate_gform_form_tag($tag)
 add_filter("gform_confirmation", "qtranslate_gform_confirmation", 10, 4);
 function qtranslate_gform_confirmation($confirmation, $form, $lead, $ajax)
 {
+	if (!function_exists('qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage')) return $confirmation;
+
 	$confirmation = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($confirmation);
 	return $confirmation;
 }
@@ -71,6 +78,8 @@ function qtranslate_gform_confirmation($confirmation, $form, $lead, $ajax)
 add_filter("gform_pre_send_email", "qtranslate_gform_pre_send_email");
 function qtranslate_gform_pre_send_email($email)
 {
+	if (!function_exists('qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage')) return $email;
+
 	$email["message"] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($email["message"]);
 	$email["subject"] = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($email["subject"]);
 	return $email;
