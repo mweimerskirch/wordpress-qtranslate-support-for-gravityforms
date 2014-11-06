@@ -2,7 +2,7 @@
 Tags: qtranslate, gravityforms
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: MIT
 License URI: http://plugins.svn.wordpress.org/qtranslate-support-for-gravityforms/trunk/LICENSE
 
@@ -21,6 +21,9 @@ To report a bug or contribute to the plugin, please create an issue at the proje
 I won't answer to requests in the support forum.
 
 == Changelog ==
+
+= 1.0.3 =
+* Support for multipage forms (Contributed by Dasteem)
 
 = 1.0.2 =
 * Small code optimisations
