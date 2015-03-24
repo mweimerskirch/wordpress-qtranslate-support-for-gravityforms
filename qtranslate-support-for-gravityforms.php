@@ -81,6 +81,15 @@ class qTranslateSupportForGravityforms
 					}
 				}
 
+				// Translate sub-labels
+				if (isset($form['fields'][$id]->inputs)) {
+					foreach ($form['fields'][$id]->inputs as $input_id => $input) {
+						if(isset($input['customLabel'])) {
+							$form['fields'][$id]->inputs[$input_id]['customLabel'] = $this->translate($input['customLabel']);
+						}
+					}
+				}
+
 				// Support for the poll add-on
 				if (isset($form['fields'][$id]['choices'])) {
 					foreach ($form['fields'][$id]['choices'] as $value => $key) {
