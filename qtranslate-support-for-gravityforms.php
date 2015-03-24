@@ -65,18 +65,18 @@ class qTranslateSupportForGravityforms
 		}
 		if (isset($form['fields'])) {
 			foreach ($form['fields'] as $id => $field) {
-				$form['fields'][$id]['label'] = $this->translate($form['fields'][$id]['label']);
-				$form['fields'][$id]['content'] = $this->translate($form['fields'][$id]['content']);
-				$form['fields'][$id]['description'] = $this->translate($form['fields'][$id]['description']);
-				$form['fields'][$id]['defaultValue'] = $this->translate($form['fields'][$id]['defaultValue']);
-				$form['fields'][$id]['errorMessage'] = $this->translate($form['fields'][$id]['errorMessage']);
-				$form['fields'][$id]['validation_message'] = $this->translate($form['fields'][$id]['validation_message']);
-				$form['fields'][$id]['choices'] = $this->translate($form['fields'][$id]['choices']);
+				$form['fields'][$id]->label = $this->translate($form['fields'][$id]->label);
+				$form['fields'][$id]->content = $this->translate($form['fields'][$id]->content);
+				$form['fields'][$id]->description = $this->translate($form['fields'][$id]->description);
+				$form['fields'][$id]->defaultValue = $this->translate($form['fields'][$id]->defaultValue);
+				$form['fields'][$id]->errorMessage = $this->translate($form['fields'][$id]->errorMessage);
+				$form['fields'][$id]->validation_message = $this->translate($form['fields'][$id]->validation_message);
+				$form['fields'][$id]->choices = $this->translate($form['fields'][$id]->choices);
 
-				if (isset($form['fields'][$id]['conditionalLogic']['rules'])) {
-					foreach ($form['fields'][$id]['conditionalLogic']['rules'] as $value => $key) {
+				if (isset($form['fields'][$id]->conditionalLogic['rules'])) {
+					foreach ($form['fields'][$id]->conditionalLogic['rules'] as $value => $key) {
 						foreach ($key as $value2 => $key2) {
-							$form['fields'][$id]['conditionalLogic']['rules'][$value][$value2] = $this->translate($key2);
+							$form['fields'][$id]->conditionalLogic['rules'][$value][$value2] = $this->translate($key2);
 						}
 					}
 				}
@@ -91,14 +91,13 @@ class qTranslateSupportForGravityforms
 				}
 
 				// Support for the poll add-on
-				if (isset($form['fields'][$id]['choices'])) {
-					foreach ($form['fields'][$id]['choices'] as $value => $key) {
-						$form['fields'][$id]['choices'][$value]['text'] = $this->translate($key['text']);
+				if (isset($form['fields'][$id]->choices)) {
+					foreach ($form['fields'][$id]->choices as $value => $key) {
+						$form['fields'][$id]->choices[$value]['text'] = $this->translate($key['text']);
 					}
 				}
-				$form['fields'][$id]['nextButton']['text'] = $this->translate($form['fields'][$id]['nextButton']['text']);
-				$form['fields'][$id]['previousButton']['text'] = $this->translate($form['fields'][$id]['previousButton']['text']);
-
+				$form['fields'][$id]->nextButton['text'] = $this->translate($form['fields'][$id]->nextButton['text']);
+				$form['fields'][$id]->previousButton['text'] = $this->translate($form['fields'][$id]->previousButton['text']);
 			}
 		}
 		if (isset($form['lastPageButton'])) {
