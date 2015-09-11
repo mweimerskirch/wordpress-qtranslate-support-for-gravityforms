@@ -2,7 +2,7 @@
 Tags: qtranslate, gravityforms
 Requires at least: 3.0.1
 Tested up to: 4.1.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: MIT
 License URI: http://plugins.svn.wordpress.org/qtranslate-support-for-gravityforms/trunk/LICENSE
 
