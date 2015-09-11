@@ -4,7 +4,7 @@
 Plugin Name: qTranslate support for GravityForms
 Plugin URI: https://github.com/mweimerskirch/wordpress-qtranslate-support-for-gravityforms
 Description: Makes qTranslate work with GravityForms
-Version: 1.1.0
+Version: 1.1.1
 Author: Michel Weimerskirch
 Author URI: http://michel.weimerskirch.net
 License: MIT
@@ -82,7 +82,7 @@ class qTranslateSupportForGravityforms
 				}
 
 				// Translate sub-labels
-				if (isset($form['fields'][$id]->inputs)) {
+				if (isset($form['fields'][$id]->inputs) && $form['fields'][$id]->inputs) {
 					foreach ($form['fields'][$id]->inputs as $input_id => $input) {
 						if(isset($input['customLabel'])) {
 							$form['fields'][$id]->inputs[$input_id]['customLabel'] = $this->translate($input['customLabel']);
@@ -91,13 +91,17 @@ class qTranslateSupportForGravityforms
 				}
 
 				// Support for the poll add-on
-				if (isset($form['fields'][$id]->choices)) {
+				if (isset($form['fields'][$id]->choices) && $form['fields'][$id]->choices) {
 					foreach ($form['fields'][$id]->choices as $value => $key) {
-						$form['fields'][$id]->choices[$value]['text'] = $this->translate($key['text']);
+						$form['fields'][$id]['choices'][$value]['text'] = $this->translate($key['text']);
 					}
 				}
-				$form['fields'][$id]->nextButton['text'] = $this->translate($form['fields'][$id]->nextButton['text']);
-				$form['fields'][$id]->previousButton['text'] = $this->translate($form['fields'][$id]->previousButton['text']);
+				if (isset($form['fields'][$id]->nextButton) && $form['fields'][$id]->nextButton) {
+					$form['fields'][$id]->nextButton['text'] = $this->translate($form['fields'][$id]->nextButton['text']);
+				}
+				if (isset($form['fields'][$id]->previousButton) && $form['fields'][$id]->previousButton) {
+					$form['fields'][$id]->previousButton['text'] = $this->translate($form['fields'][$id]->previousButton['text']);
+				}
 			}
 		}
 		if (isset($form['lastPageButton'])) {

@@ -22,6 +22,9 @@ I won't answer to requests in the support forum.
 
 == Changelog ==
 
+= 1.1.1 =
+* Eliminated a few PHP warnings
+
 = 1.1.0 =
 * Refactored the code to be more readable
 * Compatibility with qTranslate-X
