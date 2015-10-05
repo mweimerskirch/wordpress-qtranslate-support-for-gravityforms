@@ -66,6 +66,7 @@ class qTranslateSupportForGravityforms
 		if (isset($form['fields'])) {
 			foreach ($form['fields'] as $id => $field) {
 				$form['fields'][$id]->label = $this->translate($form['fields'][$id]->label);
+				$form['fields'][$id]->placeholder = $this->translate($form['fields'][$id]->placeholder);
 				$form['fields'][$id]->content = $this->translate($form['fields'][$id]->content);
 				$form['fields'][$id]->description = $this->translate($form['fields'][$id]->description);
 				$form['fields'][$id]->defaultValue = $this->translate($form['fields'][$id]->defaultValue);
