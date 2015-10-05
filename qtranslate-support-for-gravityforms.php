@@ -4,7 +4,7 @@
 Plugin Name: qTranslate support for GravityForms
 Plugin URI: https://github.com/mweimerskirch/wordpress-qtranslate-support-for-gravityforms
 Description: Makes qTranslate work with GravityForms
-Version: 1.1.1
+Version: 1.1.2
 Author: Michel Weimerskirch
 Author URI: http://michel.weimerskirch.net
 License: MIT
