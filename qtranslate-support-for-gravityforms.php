@@ -4,7 +4,7 @@
 Plugin Name: qTranslate support for GravityForms
 Plugin URI: https://github.com/mweimerskirch/wordpress-qtranslate-support-for-gravityforms
 Description: Makes qTranslate work with GravityForms
-Version: 1.1.2
+Version: 1.1.3
 Author: Michel Weimerskirch
 Author URI: http://michel.weimerskirch.net
 License: MIT
@@ -20,6 +20,7 @@ class qTranslateSupportForGravityforms
 		add_filter('gform_polls_form_pre_results', array($this, 'gform_pre_render'));
 
 		add_filter('gform_form_tag', array($this, 'gform_form_tag'));
+		add_filter('gform_savecontinue_link', array($this, "gform_savecontinue_link"), 10, 2 );
 		add_filter("gform_confirmation", array($this, "gform_confirmation"), 10, 4);
 		add_filter("gform_pre_send_email", array($this, "gform_pre_send_email"));
 	}
@@ -94,7 +95,8 @@ class qTranslateSupportForGravityforms
 				// Support for the poll add-on
 				if (isset($form['fields'][$id]->choices) && $form['fields'][$id]->choices) {
 					foreach ($form['fields'][$id]->choices as $value => $key) {
-						$form['fields'][$id]['choices'][$value]['text'] = $this->translate($key['text']);
+						if (! isset($form['fields'][$id]['choices'][$value]['text']))
+							$form['fields'][$id]['choices'][$value]['text'] = $this->translate($key['text']);
 					}
 				}
 				if (isset($form['fields'][$id]->nextButton) && $form['fields'][$id]->nextButton) {
@@ -128,6 +130,14 @@ class qTranslateSupportForGravityforms
 
 		$tag = preg_replace_callback("|action='([^']+)'|", array(&$this, 'gform_form_action_attribute'), $tag);
 		return $tag;
+	}
+
+	public function gform_savecontinue_link($save_button, $form)
+	{
+		if (!$this->isEnabled()) return $save_button;
+
+		$save_button = $this->translate($save_button);
+		return $save_button;
 	}
 
 	public function gform_confirmation($confirmation, $form, $lead, $ajax)
