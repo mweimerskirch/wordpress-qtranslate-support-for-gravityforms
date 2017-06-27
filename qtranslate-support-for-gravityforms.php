@@ -88,6 +88,9 @@ class qTranslateSupportForGravityforms
 						if(isset($input['customLabel'])) {
 							$form['fields'][$id]->inputs[$input_id]['customLabel'] = $this->translate($input['customLabel']);
 						}
+						if(isset($input['placeholder'])) {
+							$form['fields'][$id]->inputs[$input_id]['placeholder'] = $this->translate($input['placeholder']);
+						}
 					}
 				}
 
