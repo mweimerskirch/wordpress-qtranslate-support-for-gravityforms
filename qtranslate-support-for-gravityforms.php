@@ -97,7 +97,8 @@ class qTranslateSupportForGravityforms
 				// Support for the poll add-on
 				if (isset($form['fields'][$id]->choices) && $form['fields'][$id]->choices) {
 					foreach ($form['fields'][$id]->choices as $value => $key) {
-						$form['fields'][$id]['choices'][$value]['text'] = $this->translate($key['text']);
+						if (! isset($form['fields'][$id]['choices'][$value]['text']))
+							$form['fields'][$id]['choices'][$value]['text'] = $this->translate($key['text']);
 					}
 				}
 				if (isset($form['fields'][$id]->nextButton) && $form['fields'][$id]->nextButton) {
